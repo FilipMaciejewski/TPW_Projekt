@@ -7,6 +7,7 @@ namespace Data
     {
         private Vector2 _position { get; set; }
         private Vector2 _speed { get; set; }
+        private int _r { get; set; }
 
         private int _maxX = 370;
         private int _maxY = 370;
