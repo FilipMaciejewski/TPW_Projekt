@@ -4,5 +4,5 @@
 
 | Name Surname (initials) | GUID                                     |
 | ----------------------- | ---------------------------------------- |
-| ŁC                      | `{581bf6e4-8577-40a7-a2c0-43c4ba8a100e}` |
-| MD                      | `{55634888-4c49-4196-b42f-4924a59fcb8a}` |
+| Filip Maciejewski 	    |  {585224c0-dd33-4e09-a5a2-24517fc20810}  |
+| Tomasz Genderka 	      |  {c26e29ac-c936-4103-976c-fc3c89c808ec}  |
