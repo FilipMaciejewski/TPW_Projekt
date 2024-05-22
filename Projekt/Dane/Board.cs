@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
 using System.Threading;
 
@@ -8,8 +9,8 @@ namespace Data
 {
     internal class Board : BoardAPI
     {
-        public override int Width { get; set; }
-        public override int Height { get; set; }
+        public override int Width { get; }
+        public override int Height { get; }
 
         private List<BallAPI> Balls = new List<BallAPI>();
         public Board(int width, int height)
@@ -30,6 +31,14 @@ namespace Data
             return Balls;
         }
 
-
+        public override void RemoveAllBalls()
+        {
+            foreach (BallAPI ball in Balls)
+            {
+                ball._isMoving = false;
+            }
+            Balls.Clear();
+            Debug.WriteLine($"Według DataBoardAPI po usunieciu kuli jest {Balls.Count}");
+        }
     }
 }
