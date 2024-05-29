@@ -51,8 +51,8 @@
 
         <!--<Label Content="{Binding NumOfBalls}" Grid.Column="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Background="#FFF5A3A3"/>-->
 
-        <Button Content="Start" VerticalAlignment="Top" Margin="20,25,20,0" Click="Button_Click"  Grid.Column="0" Height="30" Command="{Binding CommandStartTheSimulation}"/>
-        <Button Content="Stop" VerticalAlignment="Top" Margin="26,79,26,0" Click="Button_Click" Height="30" Command="{Binding CommandStopTheSimulation}"/>
+        <Button Content="Dodaj kule" VerticalAlignment="Top" Margin="20,25,231,0" Click="Button_Click"  Grid.Column="0" Height="30" Command="{Binding CommandStartTheSimulation}" Grid.ColumnSpan="2"/>
+        <Button Content="Usuń wszystkie kule" VerticalAlignment="Top" Margin="26,79,231,0" Click="Button_Click" Height="30" Command="{Binding CommandStopTheSimulation}" Grid.ColumnSpan="2"/>
 
         <ItemsControl ItemsSource="{Binding ballModelAPIs}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="83,32,0,0">
             <ItemsControl.ItemsPanel>

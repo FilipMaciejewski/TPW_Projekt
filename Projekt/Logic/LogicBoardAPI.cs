@@ -22,7 +22,7 @@ namespace Logic
 
         public abstract void removeBalls();
 
-        public abstract void startMoving();
+        //public abstract void startMoving();
 
         public abstract int GetHeight();
         public abstract int GetWidth();

@@ -102,7 +102,7 @@ namespace PresentationViewModel
         {
             ballModelAPIs = new ObservableCollection<BallModelAPI>();
             _modelAbstractAPI = ModelAbstractAPI.CreateNewModel(380, 380);
-            _modelAbstractAPI._numOfBalls = 5;
+            _modelAbstractAPI._numOfBalls = 6;
             CommandAddOneToNumOfBalls = new RelayCommand(AddOneToNumOfBalls);
             CommandSubtractOneToNumOfBalls = new RelayCommand(SubtractOneToNumOfBalls);
             CommandStartTheSimulation = new RelayCommand(StartTheSimulation);

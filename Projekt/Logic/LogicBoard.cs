@@ -213,7 +213,7 @@ namespace Logic
                 Debug.WriteLine("Chyba udało sie zabic to ");
             }
         }*/
-        public override void startMoving()
+        /*public override void startMoving()
         {
             isMoving = true;
             foreach (BallAPI ball in ballAPIs)
@@ -228,7 +228,7 @@ namespace Logic
                 });
 
             }
-        }
+        }*/
         //private void OnTimedEvent(Object source, ElapsedEventArgs e)
         //{
         //   BallAPI temp = (BallAPI)source;
