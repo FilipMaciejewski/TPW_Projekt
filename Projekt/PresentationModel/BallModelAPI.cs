@@ -14,15 +14,15 @@ namespace PresentationModel
         {
             return new BallModel(x, y, r);
         }
-        public static BallModelAPI CreateBallModel(LogicBallAPI logicBallAPI)
+        public static BallModelAPI CreateBallModel(LogicBallAPI logicBallAPI, float scale)
         {
-            return new BallModel(logicBallAPI);
+            return new BallModel(logicBallAPI, scale);
         }
 
-
+        public abstract float Scale { get; }
         public abstract float X { get; set; }
         public abstract float Y { get; set; }
-        public abstract float R { get; set; }
+        public abstract float C { get; set; }
 
 
 

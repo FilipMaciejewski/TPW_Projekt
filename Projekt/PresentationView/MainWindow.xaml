@@ -12,34 +12,35 @@
     </Window.DataContext>
 
 
-    <Grid Background="#808080">
+    <Grid Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="132*"/>
-            <ColumnDefinition Width="264*"/>
-            <ColumnDefinition Width="271*"/>
-            <ColumnDefinition Width="44*"/>
-            <ColumnDefinition Width="44*"/>
-            <ColumnDefinition Width="44*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Stroke="Black" 
                    StrokeThickness="5"
                    Height="{Binding HeightOfViewRectangle}" 
                    Width="{Binding WidthOfViewRectangle,UpdateSourceTrigger=PropertyChanged}" 
-                   Grid.Column="1"
-                   VerticalAlignment="Top"
+                   Grid.Column="3"
+                   VerticalAlignment="Center"
                    Grid.Row="0"
-                   Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="79,27,67,0"
+                   Grid.RowSpan="2"
                    />
 
 
 
 
-        <Label Content="Podaj liczbe kuli:" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="-4,152,0,0"  HorizontalContentAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="55"/>
-        <TextBox Text="{Binding NumOfBalls,UpdateSourceTrigger=PropertyChanged}" Margin="0,26,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="22" Grid.Row="1" />
+        <Label Content="Podaj liczbe kuli:" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Grid.Column="0" Margin="0,0,0,0" Grid.ColumnSpan="3"  HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+        <TextBox Text="{Binding NumOfBalls,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" FontSize="22" />
 
         <!--        <Label  VerticalContentAlignment="Center" VerticalAlignment="Bottom" Grid.Column="4" Margin="0,0,0,0" Grid.ColumnSpan="3"  HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="16">
           <Label.Content>
@@ -50,14 +51,16 @@
 
 
         <!--<Label Content="{Binding NumOfBalls}" Grid.Column="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Background="#FFF5A3A3"/>-->
+        <Button Content="+" VerticalAlignment="Top" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Width="30" Height="30" IsDefault="True" Command="{Binding CommandAddOneToNumOfBalls}" />
+        <Button Content="-" VerticalAlignment="Top" Margin="0,0,0,0" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Width="30" Height="30" IsDefault="True" Command="{Binding CommandSubtractOneToNumOfBalls}" />
 
-        <Button Content="Dodaj kule" VerticalAlignment="Top" Margin="20,25,231,0" Click="Button_Click"  Grid.Column="0" Height="30" Command="{Binding CommandStartTheSimulation}" Grid.ColumnSpan="2"/>
-        <Button Content="Usuń wszystkie kule" VerticalAlignment="Top" Margin="26,79,231,0" Click="Button_Click" Height="30" Command="{Binding CommandStopTheSimulation}" Grid.ColumnSpan="2"/>
+        <Button Content="Dodaj kule" VerticalAlignment="Top" Margin="20,25,20,0" Click="Button_Click"  Grid.Column="0" Height="30" Grid.ColumnSpan="3" Command="{Binding CommandStartTheSimulation}"/>
+        <Button Content="Usuń wszystkie kule" VerticalAlignment="Top" Margin="0,25,15,0" Click="Button_Click" Grid.Column="4" Height="30" Grid.ColumnSpan="3" Command="{Binding CommandStopTheSimulation}"/>
 
-        <ItemsControl ItemsSource="{Binding ballModelAPIs}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="83,32,0,0">
+        <ItemsControl ItemsSource="{Binding ballModelAPIs}" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas Width="370" Height="370" Background="#add8e6"/>
+                    <Canvas Width="370" Height="370" Background="LightBlue"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemContainerStyle>
@@ -68,7 +71,7 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Ellipse Height="{Binding R}" Width="{Binding R}" Stroke="BlanchedAlmond" Fill="Green"/>
+                    <Ellipse Height="{Binding C}" Width="{Binding C}" Stroke="BlanchedAlmond" Fill="Green"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

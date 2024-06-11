@@ -6,10 +6,14 @@ namespace Data
 {
     internal class DataEventArgs : DataEventArgsAPI
     {
-        public BallAPI Ball;
-        public DataEventArgs(BallAPI ball)
+
+        public DataEventArgs(PositionOfBall position, SpeedOfBall speed, int rad, long moveTime)
         {
-            Ball = ball;
+            //Odziedziczone z API
+            positionOfBall = position;
+            speedOfBall = speed;
+            radius = rad;
+            this.moveTime = moveTime;
         }
     }
 
