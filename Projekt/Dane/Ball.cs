@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Numerics;
 using System.Runtime.Versioning;
+using System.Threading;
+using System.Timers;
 
 namespace Data
 {
@@ -109,6 +111,7 @@ namespace Data
             }
             _logger.Stop();
         }
+
 
         private int calculateTimeToSleep()
         {

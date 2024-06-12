@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace Data
 {
@@ -19,6 +20,8 @@ namespace Data
         private AutoResetEvent _logEvent;
         private const int MaxSize = 10000;
         private object _lock;
+        private System.Timers.Timer _timer;
+        private const int UpdateInterval = 16;
 
         private DataLogger(string logFileName)
         {
@@ -28,20 +31,25 @@ namespace Data
             _logQueue = new ConcurrentQueue<BallLogEntry>();
             Debug.WriteLine($"Powstał obiekt loggera i będzie pisał do {_logFilePath}");
             _isRunning = true;
-            _logThread = new Thread(ProcessQueue);
-            _logThread.Start();
+            _timer = new System.Timers.Timer(UpdateInterval);
+            _timer.Elapsed += ProcessQueue;
+            _timer.AutoReset = true;
+            _timer.Enabled = true;
+            //_logThread = new Thread(ProcessQueue);
+            //_logThread.Start();
         }
 
-        private void ProcessQueue()
+        private void ProcessQueue(Object source, ElapsedEventArgs e)
         {
             while (_isRunning)
             {
+                _timer.Start();
                 _logEvent.WaitOne();
                 while (_logQueue.TryDequeue(out var logEntry))
                 {
                     string jsonString = JsonSerializer.Serialize(logEntry);
                     //Debug.WriteLine($"Logger: zapisałem do pliku {_logFilePath} treść : {jsonString}");
-                    File.AppendAllText(_logFilePath, jsonString + Environment.NewLine, Encoding.UTF8);
+                    //File.AppendAllText(_logFilePath, jsonString + Environment.NewLine, Encoding.UTF8);
                 }
             }
         }
@@ -75,7 +83,8 @@ namespace Data
         {
             _isRunning = false;
             _logEvent.Set();
-            _logThread.Join();
+            //_logThread.Join();
+            _timer.Stop();
         }
 
 
